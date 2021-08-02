@@ -1,0 +1,72 @@
+{
+  "name": "assigncsvproject",
+  "version": "1.0.0",
+  "description": "home assignment",
+  "main": "index.js",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "csv-express": "^1.2.2",
+    "csv-writer": "^1.6.0",
+    "csvtojson": "^2.0.10",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "fs": "^0.0.1-security",
+    "json2csv": "^5.0.6",
+    "mogoose": "^0.0.1-security",
+    "mongoose": "^5.13.5",
+    "multer": "^1.4.2",
+    "nodemon": "^2.0.12",
+    "path": "^0.12.7"
+  },
+  "devDependencies": {
+    "codecov": "^3.6.5",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-config-prettier": "^6.15.0",
+    "eslint-plugin-flowtype": "4.6.0",
+    "eslint-plugin-import": "^2.20.1",
+    "eslint-plugin-prettier": "^3.4.0",
+    "husky": "^4.2.3",
+    "jasmine": "^3.5.0",
+    "lint-staged": "10.0.8",
+    "nyc": "^15.0.0",
+    "prettier": "^1.19.1"
+  },
+  "scripts": {
+    "lint": "flow && eslint --cache ./",
+    "report-coverage": "nyc report --reporter=text-lcov > coverage.lcov && codecov -t a37cf0cd-8db4-43c4-af8c-69bf648060e7",
+    "test": "nyc jasmine",
+    "test-cover": "istanbul cover --include-all-sources spec/specs.js && istanbul check-coverage"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/poojanavkar/AssignCSVproject.git"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "{src,spec}/**/*.js": [
+      "prettier --write",
+      "eslint --fix",
+      "git add"
+    ]
+  },
+  "nyc": {
+    "check-coverage": true,
+    "per-file": true,
+    "lines": 75,
+    "statements": 75,
+    "functions": 75,
+    "branches": 75
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/poojanavkar/AssignCSVproject/issues"
+  },
+  "homepage": "https://github.com/poojanavkar/AssignCSVproject#readme"
+}
