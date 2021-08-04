@@ -1,3 +1,14 @@
+# NodeJS specific #
+.nyc_output/
+coverage.lcov
+codecov
+npm-debug.log
+package-lock.json
+test/*.log
+
+# vscode specific #
+.vscode/
+
 # Dependency directory
 node_modules
 

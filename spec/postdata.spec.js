@@ -1,9 +1,17 @@
-var mainpath = require("../routes/postdata.js");
-it("check upload api ", async done => {
-  var request = { startDate: "1602227005001", endDate: "1602313340001" };
-  // wait for  200ms
-  setTimeout(() => {
-    expect(mainpath.postdataFunction(request)).toBe("data inserted");
-    done();
-  }, 200);
+var Request = require("request");
+
+var reqbody = { startDate: "1602227005001", endDate: "1602313340001" };
+var postdata = {
+  uri: "http://localhost:3001/postdata",
+  method: "post",
+  body: reqbody
+};
+describe("postdata/", () => {
+  beforeAll(done => {
+    Request.post(postdata, (error, response, body) => {
+      done();
+      expect(response.statusCode).toBe(200);
+      expect(body).not.toBeUndefined;
+    });
+  });
 });
