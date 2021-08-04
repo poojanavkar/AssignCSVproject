@@ -11,7 +11,7 @@ describe("postdata/", () => {
     Request.post(postdata, (error, response, body) => {
       done();
       expect(response.statusCode).toBe(200);
-      expect(body).not.toBeUndefined;
+      expect(body).toBe("data inserted");
     });
   });
 });
